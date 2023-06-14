@@ -50,7 +50,7 @@
         android:id="@+id/cv_tooltip"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
+        app:cardBackgroundColor="@color/black"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +59,7 @@
         app:strokeWidth="0dp">
 
         <TextView
+            android:id="@+id/tv_tooltip_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
