@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_top_arrow"
+        android:layout_width="30dp"
+        android:layout_height="10dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/cv_tooltip"
+        app:layout_constraintEnd_toEndOf="@+id/cv_tooltip"
+        app:layout_constraintStart_toStartOf="@+id/cv_tooltip"
+        app:srcCompat="@drawable/arrow_up" />
+
+    <ImageView
+        android:id="@+id/iv_bottom_arrow"
+        android:layout_width="30dp"
+        android:layout_height="10dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="@+id/cv_tooltip"
+        app:layout_constraintStart_toStartOf="@+id/cv_tooltip"
+        app:layout_constraintTop_toBottomOf="@+id/cv_tooltip"
+        app:srcCompat="@drawable/arrow_down" />
+
+    <ImageView
+        android:id="@+id/iv_left_arrow"
+        android:layout_width="10dp"
+        android:layout_height="30dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@id/cv_tooltip"
+        app:layout_constraintEnd_toStartOf="@+id/cv_tooltip"
+        app:layout_constraintTop_toTopOf="@id/cv_tooltip"
+        app:srcCompat="@drawable/arrow_left" />
+
+    <ImageView
+        android:id="@+id/iv_right_arrow"
+        android:layout_width="10dp"
+        android:layout_height="30dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@id/cv_tooltip"
+        app:layout_constraintStart_toEndOf="@+id/cv_tooltip"
+        app:layout_constraintTop_toTopOf="@id/cv_tooltip"
+        app:srcCompat="@drawable/arrow_right" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_tooltip"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeWidth="0dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            android:textColor="@color/white" />
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
