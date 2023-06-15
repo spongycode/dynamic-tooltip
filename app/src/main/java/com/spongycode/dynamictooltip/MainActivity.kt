@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
     private fun fillDefault() {
         (binding.tilElement.editText as? MaterialAutoCompleteTextView)?.setText("Button 1", false)
         (binding.tilPosition.editText as? MaterialAutoCompleteTextView)?.setText("BOTTOM", false)
-        binding.tilTooltipText.editText?.setText("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
+        binding.tilTooltipText.editText?.setText("Tooltip text goes here")
         binding.tilTextSize.editText?.setText("15")
         binding.tilPadding.editText?.setText("25")
         binding.tilCornerRadius.editText?.setText("15")
