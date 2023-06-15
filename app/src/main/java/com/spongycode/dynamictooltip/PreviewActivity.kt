@@ -4,12 +4,14 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.Gravity
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.PopupWindow
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.setPadding
@@ -88,17 +90,78 @@ class PreviewActivity : AppCompatActivity() {
             ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 tooltipView.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                showTooltipAtLocation(
-                    tooltipBinding,
-                    tooltipWindow,
-                    btn
-                )
+                if (canBePlaced(tooltipBinding, btn)) {
+                    showTooltipAtLocation(
+                        tooltipBinding,
+                        tooltipWindow,
+                        btn
+                    )
+                } else {
+                    tooltipWindow.dismiss()
+                }
             }
         })
 
         makeTooltip(tooltipBinding)
 
         tooltipWindow.showAtLocation(binding.root, Gravity.NO_GRAVITY, -1000, -1000)
+    }
+
+    private fun canBePlaced(
+        tooltipLayoutBinding: TooltipLayoutBinding,
+        btn: MaterialButton
+    ): Boolean {
+        var widthAvailable = 0
+        var heightAvailable = 0
+        val screenDimensions = getScreenDimensions(this)
+        val screenWidth = screenDimensions.first
+        val screenHeight = screenDimensions.second
+        val tooltipView = tooltipLayoutBinding.root
+        val tooltipWidth = tooltipView.width
+        val tooltipHeight = tooltipView.height
+
+        val buttonLocation = IntArray(2)
+        btn.getLocationOnScreen(buttonLocation)
+        val buttonX = buttonLocation[0]
+        val buttonY = buttonLocation[1]
+        when (position) {
+            "BOTTOM" -> {
+                heightAvailable = screenHeight - (buttonY + btn.height)
+                widthAvailable = screenWidth
+            }
+
+            "TOP" -> {
+                heightAvailable = buttonY - getNotificationPanelHeight(this)
+                widthAvailable = screenWidth
+            }
+
+            "LEFT" -> {
+                heightAvailable = screenHeight - getNotificationPanelHeight(this)
+                widthAvailable = buttonX
+            }
+
+            "RIGHT" -> {
+                heightAvailable = screenHeight - getNotificationPanelHeight(this)
+                widthAvailable = screenWidth - (buttonX + btn.width)
+            }
+
+            else -> Unit
+        }
+        Log.d("MATHS", "height available $heightAvailable")
+        Log.d("MATHS", "width available $widthAvailable")
+        Log.d("MATHS", "tooltip height $tooltipHeight")
+        Log.d("MATHS", "tooltip width $tooltipWidth")
+        return if (widthAvailable - 5 > tooltipWidth && heightAvailable - 5 > tooltipHeight) {
+            true
+        } else {
+            Toast.makeText(
+                this,
+                "Tooltip cannot fit with given parameters.",
+                Toast.LENGTH_LONG
+            ).show()
+            false
+        }
+
     }
 
     private fun makeTooltip(tooltipBinding: TooltipLayoutBinding) {
