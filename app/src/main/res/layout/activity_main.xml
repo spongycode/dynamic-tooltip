@@ -21,10 +21,11 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Target Element"
+                android:text="@string/target_element"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@+id/til_element"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
-                    android:text="Select Element" />
+                    android:text="@string/select_element" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Tooltip Position"
+                android:text="@string/tooltip_position"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@+id/til_position"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +77,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
-                    android:text="Select Position" />
+                    android:text="@string/select_position" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp"
-                android:hint="Tooltip text"
+                android:hint="@string/tooltip_text"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp"
-                android:hint="Text Size"
+                android:hint="@string/text_size"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_tooltip_text"
@@ -123,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp"
-                android:hint="Padding"
+                android:hint="@string/padding"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_tooltip_text"
@@ -140,7 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Text Colour"
+                android:text="@string/text_colour"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_text_color"
                 app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:padding="18dp"
-                android:text="Text Colour"
+                android:text="@string/text_colour"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/black"
@@ -164,7 +165,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="Background Colour"
+                android:text="@string/background_colour"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_background_color"
                 app:layout_constraintStart_toStartOf="parent"
@@ -176,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:padding="18dp"
-                android:text="Background Colour"
+                android:text="@string/background_colour"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/black"
@@ -191,7 +192,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp"
-                android:hint="Corner Radius"
+                android:hint="@string/corner_radius"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_background_color"
@@ -210,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp"
-                android:hint="Tooltip Width"
+                android:hint="@string/tooltip_width"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_background_color"
@@ -230,7 +231,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp"
-                android:hint="Arrow Width"
+                android:hint="@string/arrow_width"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_corner_radius"
@@ -249,7 +250,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp"
-                android:hint="Arrow Height"
+                android:hint="@string/arrow_height"
                 app:boxBackgroundColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_tooltip_width"
@@ -261,6 +262,124 @@
                     android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/tv_optional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/optional"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_arrow_height" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/add_image"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_add_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_add_image" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_image"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:padding="18dp"
+                android:text="@string/click_to_add_image"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_optional"
+                app:strokeColor="#686868"
+                app:strokeWidth="1dp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_image_height"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="15dp"
+                android:hint="@string/image_height"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_image"
+                app:suffixText="pixels">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_image_width"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="15dp"
+                android:hint="@string/image_width"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_image"
+                app:suffixText="pixels">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_image_radius"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="15dp"
+                android:hint="@string/image_radius"
+                app:boxBackgroundColor="@color/white"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_image_height"
+                app:suffixText="pixels">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_clear_image"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:padding="18dp"
+                android:text="@string/clear_image"
+                android:textColor="#ED1212"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="3dp"
+                app:layout_constraintBottom_toBottomOf="@+id/til_image_radius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/til_image_radius"
+                app:strokeColor="#ED1212"
+                app:strokeWidth="1dp" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
@@ -272,7 +391,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/btn_background"
-        android:text="Render Tooltip"
+        android:text="@string/render_tooltip"
         android:textColor="@color/white"
         app:backgroundTint="#0958D9"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -284,7 +403,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/btn_background"
-        android:text="Fill Default Values"
+        android:text="@string/fill_default_values"
         android:textColor="@color/white"
         app:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
