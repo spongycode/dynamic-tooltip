@@ -156,7 +156,11 @@ class PreviewActivity : AppCompatActivity() {
 
             else -> Unit
         }
-        return if (widthAvailable - 5 > tooltipWidth && heightAvailable - 5 > tooltipHeight) {
+        return if (widthAvailable > tooltipWidth - dpToPx(
+                this,
+                10f
+            ) && heightAvailable - 5 > tooltipHeight
+        ) {
             true
         } else {
             Toast.makeText(
