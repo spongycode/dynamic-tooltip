@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnBackgroundColor.setOnClickListener {
             ColorPickerDialog.Builder(this)
-                .setTitle("ColorPicker Dialog")
+                .setTitle(resources.getString(R.string.background_colour_dialog_title))
                 .setPreferenceName("MyColorPickerDialog")
                 .setPositiveButton(getString(R.string.confirm),
                     ColorEnvelopeListener { envelope, _ ->
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnTextColor.setOnClickListener {
             ColorPickerDialog.Builder(this)
-                .setTitle("ColorPicker Dialog")
+                .setTitle(resources.getString(R.string.text_colour_dialog_title))
                 .setPreferenceName("MyColorPickerDialog")
                 .setPositiveButton(getString(R.string.confirm),
                     ColorEnvelopeListener { envelope, _ ->
@@ -158,6 +158,9 @@ class MainActivity : AppCompatActivity() {
             selectedImageUri = data.data
             val file = selectedImageUri?.path?.let { File(it) }
             binding.btnAddImage.text = file?.name.toString()
+            binding.tilImageHeight.editText?.setText("250")
+            binding.tilImageWidth.editText?.setText("250")
+            binding.tilImageRadius.editText?.setText("10")
         }
     }
 

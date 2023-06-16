@@ -2,6 +2,7 @@ package com.spongycode.dynamictooltip
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -188,21 +189,6 @@ class PreviewActivity : AppCompatActivity() {
             ivRightArrow.visibility = GONE
         }
 
-        try {
-            if (imageUri.isNullOrEmpty() || imageUri == "null") {
-                tooltipBinding.cvTooltipImage.visibility = GONE
-                return
-            }
-            val uri = Uri.parse(imageUri)
-
-            tooltipBinding.ivTooltipImage.setImageURI(uri)
-            tooltipBinding.ivTooltipImage.layoutParams.height = imageHeight!!
-            tooltipBinding.ivTooltipImage.layoutParams.width = imageWidth!!
-            tooltipBinding.cvTooltipImage.radius = imageRadius!!
-            tooltipBinding.cvTooltipImage.visibility = VISIBLE
-        } catch (e: Exception) {
-            tooltipBinding.cvTooltipImage.visibility = GONE
-        }
 
         when (position) {
             "BOTTOM" -> {
@@ -210,7 +196,7 @@ class PreviewActivity : AppCompatActivity() {
                     visibility = VISIBLE
                     layoutParams.width = arrowWidth!!
                     layoutParams.height = arrowHeight!!
-                    setColorFilter(Color.parseColor(backgroundColor))
+                    setColorFilter(Color.parseColor(backgroundColor), PorterDuff.Mode.SRC_IN)
                 }
             }
 
@@ -226,8 +212,8 @@ class PreviewActivity : AppCompatActivity() {
             "RIGHT" -> {
                 tooltipBinding.ivLeftArrow.apply {
                     visibility = VISIBLE
-                    layoutParams.width = arrowWidth!!
-                    layoutParams.height = arrowHeight!!
+                    layoutParams.width = arrowHeight!!
+                    layoutParams.height = arrowWidth!!
                     setColorFilter(Color.parseColor(backgroundColor))
                 }
             }
@@ -235,13 +221,29 @@ class PreviewActivity : AppCompatActivity() {
             "LEFT" -> {
                 tooltipBinding.ivRightArrow.apply {
                     visibility = VISIBLE
-                    layoutParams.width = arrowWidth!!
-                    layoutParams.height = arrowHeight!!
+                    layoutParams.width = arrowHeight!!
+                    layoutParams.height = arrowWidth!!
                     setColorFilter(Color.parseColor(backgroundColor))
                 }
             }
 
             else -> Unit
+        }
+
+        try {
+            if (imageUri.isNullOrEmpty() || imageUri == "null") {
+                tooltipBinding.cvTooltipImage.visibility = GONE
+                return
+            }
+            val uri = Uri.parse(imageUri)
+
+            tooltipBinding.ivTooltipImage.setImageURI(uri)
+            tooltipBinding.ivTooltipImage.layoutParams.height = imageHeight!!
+            tooltipBinding.ivTooltipImage.layoutParams.width = imageWidth!!
+            tooltipBinding.cvTooltipImage.radius = imageRadius!!
+            tooltipBinding.cvTooltipImage.visibility = VISIBLE
+        } catch (e: Exception) {
+            tooltipBinding.cvTooltipImage.visibility = GONE
         }
     }
 

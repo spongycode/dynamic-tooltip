@@ -36,4 +36,6 @@
     <string name="right">RIGHT</string>
     <string name="incomplete_form">Incomplete Form</string>
     <string name="incomplete_form_message">Please fill in all the required fields correctly. If you\'re unsure, you can click the \'Fill Default Values\' button to populate the fields with default values.</string>
+    <string name="background_colour_dialog_title">Select background colour</string>
+    <string name="text_colour_dialog_title">Select text colour</string>
 </resources>
